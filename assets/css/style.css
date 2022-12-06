@@ -3363,3 +3363,81 @@ div.contact h2 {
   transition: 0.6s;
 }
 
+.notebook-viewer {
+  display:  flex;
+  gap:  2rem;
+}
+
+.files-selector {
+  background:  #E1F1FF;
+  width:  240px;
+  margin-top:  2rem;
+  border-radius:  .75rem;
+  font-family:  'Raleway', sans-serif;
+}
+
+.files-selector__header {
+  display:  flex;
+  justify-content: center;
+  align-items:  center;
+  padding:  1rem 0;
+  gap:  .5rem;
+}
+
+.files-selector__header div{
+  transform:  translateY(2px);
+  font-weight:  600;
+}
+
+.files-selector__list {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 .5rem;
+}
+
+.files-selector__item {
+  padding:  .5rem .75rem;
+  font-size:  1rem;
+  font-weight:  500;
+  border:  none;
+  background:  none;
+  text-align:  left;
+  transition:  .2s ease;
+  transform:  scale(.99);
+}
+
+.files-selector__item.files-selector__item--selected,
+.files-selector__item:hover {
+  background:  #D0E9FF;
+  transform:  scale(1)
+}
+
+.files-selector__item.files-selector__item--selected {
+  color:  #1D588F;
+}
+
+.files-selector__item::after {
+  content:  '';
+  position:  absolute;
+  top:  50%;
+  right:  0;
+  transform:  translate(-100%, -50%);
+  height:  60%;
+  width:  2px;
+  border-radius:  px;
+  transition:  .2s ease;
+  background:  #1D588F;
+  opacity:  0;
+}
+
+.files-selector__item.files-selector__item--selected::after {
+  opacity:  1;
+}
+
+.jp-Notebook {
+  display:  none;
+}
+
+.jp-Notebook--selected {
+  display:  block;
+}

@@ -260,538 +260,2704 @@
     <!-- End hero -->
 
     <div class="container">
-          <main
-            class="jp-Notebook"
-            data-jp-theme-light="true"
-            data-jp-theme-name="JupyterLab Light"
-          >
-            <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-              <div class="jp-Cell-inputWrapper">
-                <div
-                  class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
-                ></div>
-                <div class="jp-InputArea jp-Cell-inputArea">
-                  <div class="jp-InputPrompt jp-InputArea-prompt"></div>
-                  <div
-                    class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
-                    data-mime-type="text/markdown"
-                  >
-                    <h1 id="Example-1.-Hello,-World!">
-                      Example 1. Hello, World!<a
-                        class="anchor-link"
-                        href="#Example-1.-Hello,-World!"
-                        >&#182;</a
-                      >
-                    </h1>
-                    <p>
-                      We record a function and run the forward and reverse AADC
-                      kernels.
-                    </p>
-                    <h2 id="Recording-and-the-forward-kernel">
-                      Recording and the forward kernel<a
-                        class="anchor-link"
-                        href="#Recording-and-the-forward-kernel"
-                        >&#182;</a
-                      >
-                    </h2>
-                    <p>
-                      We record a simple function $f=\exp{\left(\frac{x}{y}+z\right)}$
-                      and check that the forward AADC kernel gives the same result as
-                      the original function.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-              <div class="jp-Cell-inputWrapper">
-                <div
-                  class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
-                ></div>
-                <div class="jp-InputArea jp-Cell-inputArea">
-                  <div class="jp-InputPrompt jp-InputArea-prompt"></div>
-                  <div
-                    class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
-                    data-mime-type="text/markdown"
-                  >
-                    <p>First let's include necessary headers</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-              <div class="jp-Cell-inputWrapper">
-                <div
-                  class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
-                ></div>
-                <div class="jp-InputArea jp-Cell-inputArea">
-                  <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
-                  <div
-                    class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
-                    data-type="inline"
-                  >
-                    <div class="CodeMirror cm-s-jupyter">
-                      <div class="highlight hl-c++">
-                        <pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
-                        <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;aadc/aadc.h&gt;</span><span class="cp"></span>
-                        </pre>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-              <div class="jp-Cell-inputWrapper">
-                <div
-                  class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
-                ></div>
-                <div class="jp-InputArea jp-Cell-inputArea">
-                  <div class="jp-InputPrompt jp-InputArea-prompt"></div>
-                  <div
-                    class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
-                    data-mime-type="text/markdown"
-                  >
-                    <p>
-                      We can declare variables as idouble. Note that you can use these
-                      same way as native double type
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-              <div class="jp-Cell-inputWrapper">
-                <div
-                  class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
-                ></div>
-                <div class="jp-InputArea jp-Cell-inputArea">
-                  <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
-                  <div
-                    class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
-                    data-type="inline"
-                  >
-                    <div class="CodeMirror cm-s-jupyter">
-                      <div class="highlight hl-c++">
-                        <pre><span></span><span class="n">idouble</span><span class="w"> </span><span class="nf">x</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span><span class="n">y</span><span class="p">(</span><span class="mf">1.1</span><span class="p">),</span><span class="n">z</span><span class="p">,</span><span class="n">f</span><span class="p">;</span><span class="w"></span>
-          </pre>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-              <div class="jp-Cell-inputWrapper">
-                <div
-                  class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
-                ></div>
-                <div class="jp-InputArea jp-Cell-inputArea">
-                  <div class="jp-InputPrompt jp-InputArea-prompt"></div>
-                  <div
-                    class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
-                    data-mime-type="text/markdown"
-                  >
-                    <p>Note that size of idouble is the same as native double</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-              <div class="jp-Cell-inputWrapper">
-                <div
-                  class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
-                ></div>
-                <div class="jp-InputArea jp-Cell-inputArea">
-                  <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
-                  <div
-                    class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
-                    data-type="inline"
-                  >
-                    <div class="CodeMirror cm-s-jupyter">
-                      <div class="highlight hl-c++">
-                        <pre><span></span><span class="n">assert</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">idouble</span><span class="p">));</span><span class="w"></span>
-          <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; double size : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; bytes&quot;</span><span class="w"></span>
-          <span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">idouble size : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">idouble</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; bytes&quot;</span><span class="p">;</span><span class="w"></span>
-          </pre>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <div class="notebook-viewer">
+            <div class="notebook-viewer__files-column">
+              <div class="files-selector">
+                <div class="files-selector__header">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14.625 15.75C15.2217 15.75 15.794 15.5129 16.216 15.091C16.6379 14.669 16.875 14.0967 16.875 13.5V10.125C16.875 9.52826 16.6379 8.95597 16.216 8.53401C15.794 8.11205 15.2217 7.875 14.625 7.875H3.375C2.77826 7.875 2.20597 8.11205 1.78401 8.53401C1.36205 8.95597 1.125 9.52826 1.125 10.125V13.5C1.125 14.0967 1.36205 14.669 1.78401 15.091C2.20597 15.5129 2.77826 15.75 3.375 15.75H14.625ZM1.125 7.6095V4.5C1.125 3.90326 1.36205 3.33097 1.78401 2.90901C2.20597 2.48705 2.77826 2.25 3.375 2.25H7.40925C7.85654 2.25019 8.28546 2.42797 8.60175 2.74425L10.1932 4.335C10.2982 4.44075 10.4415 4.5 10.5908 4.5H14.625C15.2217 4.5 15.794 4.73705 16.216 5.15901C16.6379 5.58097 16.875 6.15326 16.875 6.75V7.6095C16.2569 7.05498 15.4554 6.74882 14.625 6.75H3.375C2.54459 6.74882 1.74313 7.05498 1.125 7.6095V7.6095Z" fill="#1D588F"/>
+                  </svg>
 
-              <div class="jp-Cell-outputWrapper">
-                <div
-                  class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser"
-                ></div>
+                  <div>Notebook Files</div>
+                </div>
+                <div class="files-selector__list">
+                  <button class="files-selector__item files-selector__item--selected" data-key="example-1">Example 1</button>
+                  <button class="files-selector__item" data-key="example-2">Example 2</button>
+                  <button class="files-selector__item" data-key="example-3">Example 3</button>
+                  <button class="files-selector__item" data-key="example-4">Example 4</button>
+                  <button class="files-selector__item" data-key="example-5">Example 5</button>
+                </div>
+              </div>
+            </div>
+            <div class="notebook-viewer__main-column">
+              <!--  example 1 -->
 
-                <div class="jp-OutputArea jp-Cell-outputArea">
-                  <div class="jp-OutputArea-child">
-                    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
+              <div
+                class="jp-Notebook jp-Notebook--selected"
+                data-jp-theme-light="true"
+                data-jp-theme-name="JupyterLab Light"
+                data-key="example-1"
+              >
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
                     <div
-                      class="jp-RenderedText jp-OutputArea-output"
-                      data-mime-type="text/plain"
-                    >
-                      <pre> double size : 8 bytes <br/>idouble size : 8 bytes</pre
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
                       >
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-              <div class="jp-Cell-inputWrapper">
-                <div
-                  class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
-                ></div>
-                <div class="jp-InputArea jp-Cell-inputArea">
-                  <div class="jp-InputPrompt jp-InputArea-prompt"></div>
-                  <div
-                    class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
-                    data-mime-type="text/markdown"
-                  >
-                    <p>And internally idouble simply hold a value and nothing else</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-              <div class="jp-Cell-inputWrapper">
-                <div
-                  class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
-                ></div>
-                <div class="jp-InputArea jp-Cell-inputArea">
-                  <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
-                  <div
-                    class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
-                    data-type="inline"
-                  >
-                    <div class="CodeMirror cm-s-jupyter">
-                      <div class="highlight hl-c++">
-                        <pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">val</span><span class="p">;</span><span class="w"></span>
-          </pre>
+                        <h1 id="Example-1.-Hello,-World!">
+                          Example 1. Hello, World!<a
+                            class="anchor-link"
+                            href="#Example-1.-Hello,-World!"
+                            >&#182;</a
+                          >
+                        </h1>
+                        <p>
+                          We record a function and run the forward and reverse AADC
+                          kernels.
+                        </p>
+                        <h2 id="Recording-and-the-forward-kernel">
+                          Recording and the forward kernel<a
+                            class="anchor-link"
+                            href="#Recording-and-the-forward-kernel"
+                            >&#182;</a
+                          >
+                        </h2>
+                        <p>
+                          We record a simple function $f=\exp{\left(\frac{x}{y}+z\right)}$
+                          and check that the forward AADC kernel gives the same result as
+                          the original function.
+                        </p>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-
-              <div class="jp-Cell-outputWrapper">
-                <div
-                  class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser"
-                ></div>
-
-                <div class="jp-OutputArea jp-Cell-outputArea">
-                  <div class="jp-OutputArea-child">
-                    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
                     <div
-                      class="jp-RenderedText jp-OutputArea-output"
-                      data-mime-type="text/plain"
-                    >
-                      <pre>0.5</pre>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-              <div class="jp-Cell-inputWrapper">
-                <div
-                  class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
-                ></div>
-                <div class="jp-InputArea jp-Cell-inputArea">
-                  <div class="jp-InputPrompt jp-InputArea-prompt"></div>
-                  <div
-                    class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
-                    data-mime-type="text/markdown"
-                  >
-                    <p>
-                      Normally AAD libraries hold variable id or a pointer to internal
-                      structure, so you may ask how we track variables. The answer is
-                      &quot;we use variable address!&quot;. This has multiple
-                      advantages like identical memory layout for active and native
-                      objects. I.e. <strong>std::vector&lt;double&gt;</strong> and
-                      <strong>std::vector&lt;idouble&gt;</strong> have same memory
-                      representations!
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-              <div class="jp-Cell-inputWrapper">
-                <div
-                  class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
-                ></div>
-                <div class="jp-InputArea jp-Cell-inputArea">
-                  <div class="jp-InputPrompt jp-InputArea-prompt"></div>
-                  <div
-                    class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
-                    data-mime-type="text/markdown"
-                  >
-                    <p>
-                      As you expect from native double type, you can use idouble types
-                      in expressions
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-              <div class="jp-Cell-inputWrapper">
-                <div
-                  class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
-                ></div>
-                <div class="jp-InputArea jp-Cell-inputArea">
-                  <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
-                  <div
-                    class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
-                    data-type="inline"
-                  >
-                    <div class="CodeMirror cm-s-jupyter">
-                      <div class="highlight hl-c++">
-                        <pre><span></span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sin</span><span class="p">(</span><span class="n">y</span><span class="p">);</span><span class="w"></span>
-          <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;z:&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">z</span><span class="p">;</span><span class="w"></span>
-          </pre>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="jp-Cell-outputWrapper">
-                <div
-                  class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser"
-                ></div>
-
-                <div class="jp-OutputArea jp-Cell-outputArea">
-                  <div class="jp-OutputArea-child">
-                    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-                    <div
-                      class="jp-RenderedText jp-OutputArea-output"
-                      data-mime-type="text/plain"
-                    >
-                      <pre>z:1.39121</pre>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-              <div class="jp-Cell-inputWrapper">
-                <div
-                  class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
-                ></div>
-                <div class="jp-InputArea jp-Cell-inputArea">
-                  <div class="jp-InputPrompt jp-InputArea-prompt"></div>
-                  <div
-                    class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
-                    data-mime-type="text/markdown"
-                  >
-                    <p>
-                      This means integration into existing code base is very easy.
-                      Just change native double type to active double type, recompile
-                      and your code should produce the same results!
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-              <div class="jp-Cell-inputWrapper">
-                <div
-                  class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
-                ></div>
-                <div class="jp-InputArea jp-Cell-inputArea">
-                  <div class="jp-InputPrompt jp-InputArea-prompt"></div>
-                  <div
-                    class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
-                    data-mime-type="text/markdown"
-                  >
-                    <h2 id="Recording-calculations">
-                      Recording calculations<a
-                        class="anchor-link"
-                        href="#Recording-calculations"
-                        >&#182;</a
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
                       >
-                    </h2>
-                    <p>
-                      Now that we have active types in, we can begin recording
-                      calculations. We start by selecting vectorization type we want
-                      to use (avx2 or avx512).
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-              <div class="jp-Cell-inputWrapper">
-                <div
-                  class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
-                ></div>
-                <div class="jp-InputArea jp-Cell-inputArea">
-                  <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
-                  <div
-                    class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
-                    data-type="inline"
-                  >
-                    <div class="CodeMirror cm-s-jupyter">
-                      <div class="highlight hl-c++">
-                        <pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="n">__m256d</span><span class="w"> </span><span class="n">mmType</span><span class="p">;</span><span class="w"> </span><span class="c1">// __m512d is used for AVX512</span>
-          </pre>
+                        <p>First let's include necessary headers</p>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-              <div class="jp-Cell-inputWrapper">
-                <div
-                  class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
-                ></div>
-                <div class="jp-InputArea jp-Cell-inputArea">
-                  <div class="jp-InputPrompt jp-InputArea-prompt"></div>
-                  <div
-                    class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
-                    data-mime-type="text/markdown"
-                  >
-                    <p>
-                      We next create <em>aad_funcs</em> object that going to hold
-                      recorded calculations for forward kernel and adjoint kernel.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-              <div class="jp-Cell-inputWrapper">
-                <div
-                  class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
-                ></div>
-                <div class="jp-InputArea jp-Cell-inputArea">
-                  <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
-                  <div
-                    class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
-                    data-type="inline"
-                  >
-                    <div class="CodeMirror cm-s-jupyter">
-                      <div class="highlight hl-c++">
-                        <pre><span></span><span class="n">aadc</span><span class="o">::</span><span class="n">AADCFunctions</span><span class="o">&lt;</span><span class="n">mmType</span><span class="o">&gt;</span><span class="w"> </span><span class="n">aad_funcs</span><span class="p">;</span><span class="w"></span>
-          </pre>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-              <div class="jp-Cell-inputWrapper">
-                <div
-                  class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
-                ></div>
-                <div class="jp-InputArea jp-Cell-inputArea">
-                  <div class="jp-InputPrompt jp-InputArea-prompt"></div>
-                  <div
-                    class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
-                    data-mime-type="text/markdown"
-                  >
-                    <p>
-                      Next we call <em>.startRecording()</em> to initialize AADC
-                      library and start recording of forward and adjoint kernels.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="jp-Cell jp-CodeCell jp-Notebook-cell">
-              <div class="jp-Cell-inputWrapper">
-                <div
-                  class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
-                ></div>
-                <div class="jp-InputArea jp-Cell-inputArea">
-                  <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
-                  <div
-                    class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
-                    data-type="inline"
-                  >
-                    <div class="CodeMirror cm-s-jupyter">
-                      <div class="highlight hl-c++">
-                        <pre><span></span><span class="n">aad_funcs</span><span class="p">.</span><span class="n">startRecording</span><span class="p">();</span><span class="w"></span>
-          </pre>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="jp-Cell-outputWrapper">
-                <div
-                  class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser"
-                ></div>
-
-                <div class="jp-OutputArea jp-Cell-outputArea">
-                  <div class="jp-OutputArea-child">
-                    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+                  <div class="jp-Cell-inputWrapper">
                     <div
-                      class="jp-RenderedText jp-OutputArea-output"
-                      data-mime-type="text/plain"
-                    >
-                      <pre>You are using evaluation version of AADC. Expire date is 20230201
-          </pre
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
                       >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+                            <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;aadc/aadc.h&gt;</span><span class="cp"></span>
+                            </pre>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-              <div class="jp-Cell-inputWrapper">
-                <div
-                  class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
-                ></div>
-                <div class="jp-InputArea jp-Cell-inputArea">
-                  <div class="jp-InputPrompt jp-InputArea-prompt"></div>
-                  <div
-                    class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
-                    data-mime-type="text/markdown"
-                  >
-                    <p>
-                      We should select which variables are inputs to valuation graph
-                      and keep argument handle.
-                    </p>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          We can declare variables as idouble. Note that you can use these
+                          same way as native double type
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-              <div class="jp-Cell-inputWrapper">
-                <div
-                  class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
-                ></div>
-                <div class="jp-InputArea jp-Cell-inputArea">
-                  <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
-                  <div
-                    class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
-                    data-type="inline"
-                  >
-                    <div class="CodeMirror cm-s-jupyter">
-                      <div class="highlight hl-c++">
-                        <pre><span></span><span class="n">aadc</span><span class="o">::</span><span class="n">AADCArgument</span><span class="w"> </span><span class="nf">x_arg</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">markAsInput</span><span class="p">());</span><span class="w"></span>
-          <span class="w">    </span><span class="n">aadc</span><span class="o">::</span><span class="n">AADCArgument</span><span class="w"> </span><span class="nf">y_arg</span><span class="p">(</span><span class="n">y</span><span class="p">.</span><span class="n">markAsInput</span><span class="p">());</span><span class="w"></span>
-          <span class="w">    </span><span class="n">aadc</span><span class="o">::</span><span class="n">AADCArgument</span><span class="w"> </span><span class="nf">z_arg</span><span class="p">(</span><span class="n">z</span><span class="p">.</span><span class="n">markAsInput</span><span class="p">());</span><span class="w"></span>
-          </pre>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">idouble</span><span class="w"> </span><span class="nf">x</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span><span class="n">y</span><span class="p">(</span><span class="mf">1.1</span><span class="p">),</span><span class="n">z</span><span class="p">,</span><span class="n">f</span><span class="p">;</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>Note that size of idouble is the same as native double</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">assert</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">idouble</span><span class="p">));</span><span class="w"></span>
+              <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; double size : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; bytes&quot;</span><span class="w"></span>
+              <span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">idouble size : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">idouble</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; bytes&quot;</span><span class="p">;</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="jp-Cell-outputWrapper">
+                    <div
+                      class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser"
+                    ></div>
+
+                    <div class="jp-OutputArea jp-Cell-outputArea">
+                      <div class="jp-OutputArea-child">
+                        <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+                        <div
+                          class="jp-RenderedText jp-OutputArea-output"
+                          data-mime-type="text/plain"
+                        >
+                          <pre> double size : 8 bytes <br/>idouble size : 8 bytes</pre
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>And internally idouble simply hold a value and nothing else</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">val</span><span class="p">;</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="jp-Cell-outputWrapper">
+                    <div
+                      class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser"
+                    ></div>
+
+                    <div class="jp-OutputArea jp-Cell-outputArea">
+                      <div class="jp-OutputArea-child">
+                        <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+                        <div
+                          class="jp-RenderedText jp-OutputArea-output"
+                          data-mime-type="text/plain"
+                        >
+                          <pre>0.5</pre>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          Normally AAD libraries hold variable id or a pointer to internal
+                          structure, so you may ask how we track variables. The answer is
+                          &quot;we use variable address!&quot;. This has multiple
+                          advantages like identical memory layout for active and native
+                          objects. I.e. <strong>std::vector&lt;double&gt;</strong> and
+                          <strong>std::vector&lt;idouble&gt;</strong> have same memory
+                          representations!
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          As you expect from native double type, you can use idouble types
+                          in expressions
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sin</span><span class="p">(</span><span class="n">y</span><span class="p">);</span><span class="w"></span>
+              <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;z:&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">z</span><span class="p">;</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="jp-Cell-outputWrapper">
+                    <div
+                      class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser"
+                    ></div>
+
+                    <div class="jp-OutputArea jp-Cell-outputArea">
+                      <div class="jp-OutputArea-child">
+                        <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+                        <div
+                          class="jp-RenderedText jp-OutputArea-output"
+                          data-mime-type="text/plain"
+                        >
+                          <pre>z:1.39121</pre>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          This means integration into existing code base is very easy.
+                          Just change native double type to active double type, recompile
+                          and your code should produce the same results!
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <h2 id="Recording-calculations">
+                          Recording calculations<a
+                            class="anchor-link"
+                            href="#Recording-calculations"
+                            >&#182;</a
+                          >
+                        </h2>
+                        <p>
+                          Now that we have active types in, we can begin recording
+                          calculations. We start by selecting vectorization type we want
+                          to use (avx2 or avx512).
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="n">__m256d</span><span class="w"> </span><span class="n">mmType</span><span class="p">;</span><span class="w"> </span><span class="c1">// __m512d is used for AVX512</span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          We next create <em>aad_funcs</em> object that going to hold
+                          recorded calculations for forward kernel and adjoint kernel.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">aadc</span><span class="o">::</span><span class="n">AADCFunctions</span><span class="o">&lt;</span><span class="n">mmType</span><span class="o">&gt;</span><span class="w"> </span><span class="n">aad_funcs</span><span class="p">;</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          Next we call <em>.startRecording()</em> to initialize AADC
+                          library and start recording of forward and adjoint kernels.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">aad_funcs</span><span class="p">.</span><span class="n">startRecording</span><span class="p">();</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="jp-Cell-outputWrapper">
+                    <div
+                      class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser"
+                    ></div>
+
+                    <div class="jp-OutputArea jp-Cell-outputArea">
+                      <div class="jp-OutputArea-child">
+                        <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+                        <div
+                          class="jp-RenderedText jp-OutputArea-output"
+                          data-mime-type="text/plain"
+                        >
+                          <pre>You are using evaluation version of AADC. Expire date is 20230201
+              </pre
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          We should select which variables are inputs to valuation graph
+                          and keep argument handle.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">aadc</span><span class="o">::</span><span class="n">AADCArgument</span><span class="w"> </span><span class="nf">x_arg</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">markAsInput</span><span class="p">());</span><span class="w"></span>
+              <span class="w">    </span><span class="n">aadc</span><span class="o">::</span><span class="n">AADCArgument</span><span class="w"> </span><span class="nf">y_arg</span><span class="p">(</span><span class="n">y</span><span class="p">.</span><span class="n">markAsInput</span><span class="p">());</span><span class="w"></span>
+              <span class="w">    </span><span class="n">aadc</span><span class="o">::</span><span class="n">AADCArgument</span><span class="w"> </span><span class="nf">z_arg</span><span class="p">(</span><span class="n">z</span><span class="p">.</span><span class="n">markAsInput</span><span class="p">());</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+
+              <!--  example 2  -->
+
+              <div
+                class="jp-Notebook jp-Notebook--selected"
+                data-jp-theme-light="true"
+                data-jp-theme-name="JupyterLab Light"
+                data-key="example-2"
+              >
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <h1 id="Example-1.-Hello,-World!">
+                          Example 2. Good day!<a
+                            class="anchor-link"
+                            href="#Example-1.-Hello,-World!"
+                            >&#182;</a
+                          >
+                        </h1>
+                        <p>
+                          Lorem ipsum dolor sit, amet consectetur, adipisicing elit. Laborum nobis, iste placeat.
+                        </p>
+                        <h2 id="Recording-and-the-forward-kernel">
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, temporibus!<a
+                            class="anchor-link"
+                            href="#Recording-and-the-forward-kernel"
+                            >&#182;</a
+                          >
+                        </h2>
+                        <p>
+                          We record a simple function $f=\exp{\left(\frac{x}{y}+z\right)}$
+                          and check that the forward AADC kernel gives the same result as
+                          the original function.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>First let's include necessary headers</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+                            <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;aadc/aadc.h&gt;</span><span class="cp"></span>
+                            </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          We can declare variables as idouble. Note that you can use these
+                          same way as native double type
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">idouble</span><span class="w"> </span><span class="nf">x</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span><span class="n">y</span><span class="p">(</span><span class="mf">1.1</span><span class="p">),</span><span class="n">z</span><span class="p">,</span><span class="n">f</span><span class="p">;</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>Note that size of idouble is the same as native double</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">assert</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">idouble</span><span class="p">));</span><span class="w"></span>
+              <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; double size : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; bytes&quot;</span><span class="w"></span>
+              <span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">idouble size : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">idouble</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; bytes&quot;</span><span class="p">;</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="jp-Cell-outputWrapper">
+                    <div
+                      class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser"
+                    ></div>
+
+                    <div class="jp-OutputArea jp-Cell-outputArea">
+                      <div class="jp-OutputArea-child">
+                        <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+                        <div
+                          class="jp-RenderedText jp-OutputArea-output"
+                          data-mime-type="text/plain"
+                        >
+                          <pre> double size : 8 bytes <br/>idouble size : 8 bytes</pre
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>And internally idouble simply hold a value and nothing else</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">val</span><span class="p">;</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="jp-Cell-outputWrapper">
+                    <div
+                      class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser"
+                    ></div>
+
+                    <div class="jp-OutputArea jp-Cell-outputArea">
+                      <div class="jp-OutputArea-child">
+                        <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+                        <div
+                          class="jp-RenderedText jp-OutputArea-output"
+                          data-mime-type="text/plain"
+                        >
+                          <pre>0.5</pre>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          Normally AAD libraries hold variable id or a pointer to internal
+                          structure, so you may ask how we track variables. The answer is
+                          &quot;we use variable address!&quot;. This has multiple
+                          advantages like identical memory layout for active and native
+                          objects. I.e. <strong>std::vector&lt;double&gt;</strong> and
+                          <strong>std::vector&lt;idouble&gt;</strong> have same memory
+                          representations!
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          As you expect from native double type, you can use idouble types
+                          in expressions
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sin</span><span class="p">(</span><span class="n">y</span><span class="p">);</span><span class="w"></span>
+              <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;z:&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">z</span><span class="p">;</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="jp-Cell-outputWrapper">
+                    <div
+                      class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser"
+                    ></div>
+
+                    <div class="jp-OutputArea jp-Cell-outputArea">
+                      <div class="jp-OutputArea-child">
+                        <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+                        <div
+                          class="jp-RenderedText jp-OutputArea-output"
+                          data-mime-type="text/plain"
+                        >
+                          <pre>z:1.39121</pre>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          This means integration into existing code base is very easy.
+                          Just change native double type to active double type, recompile
+                          and your code should produce the same results!
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <h2 id="Recording-calculations">
+                          Recording calculations<a
+                            class="anchor-link"
+                            href="#Recording-calculations"
+                            >&#182;</a
+                          >
+                        </h2>
+                        <p>
+                          Now that we have active types in, we can begin recording
+                          calculations. We start by selecting vectorization type we want
+                          to use (avx2 or avx512).
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="n">__m256d</span><span class="w"> </span><span class="n">mmType</span><span class="p">;</span><span class="w"> </span><span class="c1">// __m512d is used for AVX512</span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          We next create <em>aad_funcs</em> object that going to hold
+                          recorded calculations for forward kernel and adjoint kernel.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">aadc</span><span class="o">::</span><span class="n">AADCFunctions</span><span class="o">&lt;</span><span class="n">mmType</span><span class="o">&gt;</span><span class="w"> </span><span class="n">aad_funcs</span><span class="p">;</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          Next we call <em>.startRecording()</em> to initialize AADC
+                          library and start recording of forward and adjoint kernels.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">aad_funcs</span><span class="p">.</span><span class="n">startRecording</span><span class="p">();</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="jp-Cell-outputWrapper">
+                    <div
+                      class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser"
+                    ></div>
+
+                    <div class="jp-OutputArea jp-Cell-outputArea">
+                      <div class="jp-OutputArea-child">
+                        <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+                        <div
+                          class="jp-RenderedText jp-OutputArea-output"
+                          data-mime-type="text/plain"
+                        >
+                          <pre>You are using evaluation version of AADC. Expire date is 20230201
+              </pre
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          We should select which variables are inputs to valuation graph
+                          and keep argument handle.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">aadc</span><span class="o">::</span><span class="n">AADCArgument</span><span class="w"> </span><span class="nf">x_arg</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">markAsInput</span><span class="p">());</span><span class="w"></span>
+              <span class="w">    </span><span class="n">aadc</span><span class="o">::</span><span class="n">AADCArgument</span><span class="w"> </span><span class="nf">y_arg</span><span class="p">(</span><span class="n">y</span><span class="p">.</span><span class="n">markAsInput</span><span class="p">());</span><span class="w"></span>
+              <span class="w">    </span><span class="n">aadc</span><span class="o">::</span><span class="n">AADCArgument</span><span class="w"> </span><span class="nf">z_arg</span><span class="p">(</span><span class="n">z</span><span class="p">.</span><span class="n">markAsInput</span><span class="p">());</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- example 3 -->
+
+              <div
+                class="jp-Notebook jp-Notebook--selected"
+                data-jp-theme-light="true"
+                data-jp-theme-name="JupyterLab Light"
+                data-key="example-3"
+              >
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <h1 id="Example-1.-Hello,-World!">
+                          Lorem, ipsum dolor sit.<a
+                            class="anchor-link"
+                            href="#Example-1.-Hello,-World!"
+                            >&#182;</a
+                          >
+                        </h1>
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem esse vel rem, obcaecati necessitatibus, tenetur doloribus tempora mollitia, reprehenderit pariatur molestias eos id molestiae.
+                        </p>
+                        <h2 id="Recording-and-the-forward-kernel">
+                          Lorem ipsum dolor sit.<a
+                            class="anchor-link"
+                            href="#Recording-and-the-forward-kernel"
+                            >&#182;</a
+                          >
+                        </h2>
+                        <p>
+                          We record a simple function $f=\exp{\left(\frac{x}{y}+z\right)}$
+                          and check that the forward AADC kernel gives the same result as
+                          the original function.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>First let's include necessary headers</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+                            <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;aadc/aadc.h&gt;</span><span class="cp"></span>
+                            </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          We can declare variables as idouble. Note that you can use these
+                          same way as native double type
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">idouble</span><span class="w"> </span><span class="nf">x</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span><span class="n">y</span><span class="p">(</span><span class="mf">1.1</span><span class="p">),</span><span class="n">z</span><span class="p">,</span><span class="n">f</span><span class="p">;</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>Note that size of idouble is the same as native double</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">assert</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">idouble</span><span class="p">));</span><span class="w"></span>
+              <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; double size : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; bytes&quot;</span><span class="w"></span>
+              <span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">idouble size : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">idouble</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; bytes&quot;</span><span class="p">;</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="jp-Cell-outputWrapper">
+                    <div
+                      class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser"
+                    ></div>
+
+                    <div class="jp-OutputArea jp-Cell-outputArea">
+                      <div class="jp-OutputArea-child">
+                        <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+                        <div
+                          class="jp-RenderedText jp-OutputArea-output"
+                          data-mime-type="text/plain"
+                        >
+                          <pre> double size : 8 bytes <br/>idouble size : 8 bytes</pre
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>And internally idouble simply hold a value and nothing else</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">val</span><span class="p">;</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="jp-Cell-outputWrapper">
+                    <div
+                      class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser"
+                    ></div>
+
+                    <div class="jp-OutputArea jp-Cell-outputArea">
+                      <div class="jp-OutputArea-child">
+                        <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+                        <div
+                          class="jp-RenderedText jp-OutputArea-output"
+                          data-mime-type="text/plain"
+                        >
+                          <pre>0.5</pre>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          Normally AAD libraries hold variable id or a pointer to internal
+                          structure, so you may ask how we track variables. The answer is
+                          &quot;we use variable address!&quot;. This has multiple
+                          advantages like identical memory layout for active and native
+                          objects. I.e. <strong>std::vector&lt;double&gt;</strong> and
+                          <strong>std::vector&lt;idouble&gt;</strong> have same memory
+                          representations!
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          As you expect from native double type, you can use idouble types
+                          in expressions
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sin</span><span class="p">(</span><span class="n">y</span><span class="p">);</span><span class="w"></span>
+              <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;z:&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">z</span><span class="p">;</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="jp-Cell-outputWrapper">
+                    <div
+                      class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser"
+                    ></div>
+
+                    <div class="jp-OutputArea jp-Cell-outputArea">
+                      <div class="jp-OutputArea-child">
+                        <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+                        <div
+                          class="jp-RenderedText jp-OutputArea-output"
+                          data-mime-type="text/plain"
+                        >
+                          <pre>z:1.39121</pre>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          This means integration into existing code base is very easy.
+                          Just change native double type to active double type, recompile
+                          and your code should produce the same results!
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <h2 id="Recording-calculations">
+                          Recording calculations<a
+                            class="anchor-link"
+                            href="#Recording-calculations"
+                            >&#182;</a
+                          >
+                        </h2>
+                        <p>
+                          Now that we have active types in, we can begin recording
+                          calculations. We start by selecting vectorization type we want
+                          to use (avx2 or avx512).
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="n">__m256d</span><span class="w"> </span><span class="n">mmType</span><span class="p">;</span><span class="w"> </span><span class="c1">// __m512d is used for AVX512</span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          We next create <em>aad_funcs</em> object that going to hold
+                          recorded calculations for forward kernel and adjoint kernel.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">aadc</span><span class="o">::</span><span class="n">AADCFunctions</span><span class="o">&lt;</span><span class="n">mmType</span><span class="o">&gt;</span><span class="w"> </span><span class="n">aad_funcs</span><span class="p">;</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          Next we call <em>.startRecording()</em> to initialize AADC
+                          library and start recording of forward and adjoint kernels.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">aad_funcs</span><span class="p">.</span><span class="n">startRecording</span><span class="p">();</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="jp-Cell-outputWrapper">
+                    <div
+                      class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser"
+                    ></div>
+
+                    <div class="jp-OutputArea jp-Cell-outputArea">
+                      <div class="jp-OutputArea-child">
+                        <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+                        <div
+                          class="jp-RenderedText jp-OutputArea-output"
+                          data-mime-type="text/plain"
+                        >
+                          <pre>You are using evaluation version of AADC. Expire date is 20230201
+              </pre
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          We should select which variables are inputs to valuation graph
+                          and keep argument handle.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">aadc</span><span class="o">::</span><span class="n">AADCArgument</span><span class="w"> </span><span class="nf">x_arg</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">markAsInput</span><span class="p">());</span><span class="w"></span>
+              <span class="w">    </span><span class="n">aadc</span><span class="o">::</span><span class="n">AADCArgument</span><span class="w"> </span><span class="nf">y_arg</span><span class="p">(</span><span class="n">y</span><span class="p">.</span><span class="n">markAsInput</span><span class="p">());</span><span class="w"></span>
+              <span class="w">    </span><span class="n">aadc</span><span class="o">::</span><span class="n">AADCArgument</span><span class="w"> </span><span class="nf">z_arg</span><span class="p">(</span><span class="n">z</span><span class="p">.</span><span class="n">markAsInput</span><span class="p">());</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--  example 4 -->
+
+              <div
+                class="jp-Notebook jp-Notebook--selected"
+                data-jp-theme-light="true"
+                data-jp-theme-name="JupyterLab Light"
+                data-key="example-4"
+              >
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <h1 id="Example-1.-Hello,-World!">
+                          Lorem ipsum dolor sit amet, consectetur adipisicing.<a
+                            class="anchor-link"
+                            href="#Example-1.-Hello,-World!"
+                            >&#182;</a
+                          >
+                        </h1>
+                        <p>
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa tempore, aperiam, ad sed provident dolorum iste.
+                        </p>
+                        <h2 id="Recording-and-the-forward-kernel">
+                          Lorem ipsum dolor, sit amet consectetur, adipisicing elit.<a
+                            class="anchor-link"
+                            href="#Recording-and-the-forward-kernel"
+                            >&#182;</a
+                          >
+                        </h2>
+                        <p>
+                          We record a simple function $f=\exp{\left(\frac{x}{y}+z\right)}$
+                          and check that the forward AADC kernel gives the same result as
+                          the original function.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>First let's include necessary headers</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+                            <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;aadc/aadc.h&gt;</span><span class="cp"></span>
+                            </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          We can declare variables as idouble. Note that you can use these
+                          same way as native double type
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">idouble</span><span class="w"> </span><span class="nf">x</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span><span class="n">y</span><span class="p">(</span><span class="mf">1.1</span><span class="p">),</span><span class="n">z</span><span class="p">,</span><span class="n">f</span><span class="p">;</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>Note that size of idouble is the same as native double</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">assert</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">idouble</span><span class="p">));</span><span class="w"></span>
+              <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; double size : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; bytes&quot;</span><span class="w"></span>
+              <span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">idouble size : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">idouble</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; bytes&quot;</span><span class="p">;</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="jp-Cell-outputWrapper">
+                    <div
+                      class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser"
+                    ></div>
+
+                    <div class="jp-OutputArea jp-Cell-outputArea">
+                      <div class="jp-OutputArea-child">
+                        <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+                        <div
+                          class="jp-RenderedText jp-OutputArea-output"
+                          data-mime-type="text/plain"
+                        >
+                          <pre> double size : 8 bytes <br/>idouble size : 8 bytes</pre
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>And internally idouble simply hold a value and nothing else</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">val</span><span class="p">;</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="jp-Cell-outputWrapper">
+                    <div
+                      class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser"
+                    ></div>
+
+                    <div class="jp-OutputArea jp-Cell-outputArea">
+                      <div class="jp-OutputArea-child">
+                        <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+                        <div
+                          class="jp-RenderedText jp-OutputArea-output"
+                          data-mime-type="text/plain"
+                        >
+                          <pre>0.5</pre>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          Normally AAD libraries hold variable id or a pointer to internal
+                          structure, so you may ask how we track variables. The answer is
+                          &quot;we use variable address!&quot;. This has multiple
+                          advantages like identical memory layout for active and native
+                          objects. I.e. <strong>std::vector&lt;double&gt;</strong> and
+                          <strong>std::vector&lt;idouble&gt;</strong> have same memory
+                          representations!
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          As you expect from native double type, you can use idouble types
+                          in expressions
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sin</span><span class="p">(</span><span class="n">y</span><span class="p">);</span><span class="w"></span>
+              <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;z:&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">z</span><span class="p">;</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="jp-Cell-outputWrapper">
+                    <div
+                      class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser"
+                    ></div>
+
+                    <div class="jp-OutputArea jp-Cell-outputArea">
+                      <div class="jp-OutputArea-child">
+                        <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+                        <div
+                          class="jp-RenderedText jp-OutputArea-output"
+                          data-mime-type="text/plain"
+                        >
+                          <pre>z:1.39121</pre>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          This means integration into existing code base is very easy.
+                          Just change native double type to active double type, recompile
+                          and your code should produce the same results!
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <h2 id="Recording-calculations">
+                          Recording calculations<a
+                            class="anchor-link"
+                            href="#Recording-calculations"
+                            >&#182;</a
+                          >
+                        </h2>
+                        <p>
+                          Now that we have active types in, we can begin recording
+                          calculations. We start by selecting vectorization type we want
+                          to use (avx2 or avx512).
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="n">__m256d</span><span class="w"> </span><span class="n">mmType</span><span class="p">;</span><span class="w"> </span><span class="c1">// __m512d is used for AVX512</span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          We next create <em>aad_funcs</em> object that going to hold
+                          recorded calculations for forward kernel and adjoint kernel.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">aadc</span><span class="o">::</span><span class="n">AADCFunctions</span><span class="o">&lt;</span><span class="n">mmType</span><span class="o">&gt;</span><span class="w"> </span><span class="n">aad_funcs</span><span class="p">;</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          Next we call <em>.startRecording()</em> to initialize AADC
+                          library and start recording of forward and adjoint kernels.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">aad_funcs</span><span class="p">.</span><span class="n">startRecording</span><span class="p">();</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="jp-Cell-outputWrapper">
+                    <div
+                      class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser"
+                    ></div>
+
+                    <div class="jp-OutputArea jp-Cell-outputArea">
+                      <div class="jp-OutputArea-child">
+                        <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+                        <div
+                          class="jp-RenderedText jp-OutputArea-output"
+                          data-mime-type="text/plain"
+                        >
+                          <pre>You are using evaluation version of AADC. Expire date is 20230201
+              </pre
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          We should select which variables are inputs to valuation graph
+                          and keep argument handle.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">aadc</span><span class="o">::</span><span class="n">AADCArgument</span><span class="w"> </span><span class="nf">x_arg</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">markAsInput</span><span class="p">());</span><span class="w"></span>
+              <span class="w">    </span><span class="n">aadc</span><span class="o">::</span><span class="n">AADCArgument</span><span class="w"> </span><span class="nf">y_arg</span><span class="p">(</span><span class="n">y</span><span class="p">.</span><span class="n">markAsInput</span><span class="p">());</span><span class="w"></span>
+              <span class="w">    </span><span class="n">aadc</span><span class="o">::</span><span class="n">AADCArgument</span><span class="w"> </span><span class="nf">z_arg</span><span class="p">(</span><span class="n">z</span><span class="p">.</span><span class="n">markAsInput</span><span class="p">());</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- example 5 -->
+
+              <div
+                class="jp-Notebook jp-Notebook--selected"
+                data-jp-theme-light="true"
+                data-jp-theme-name="JupyterLab Light"
+                data-key="example-5"
+              >
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <h1 id="Example-1.-Hello,-World!">
+                          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam nisi tempora facilis molestiae sunt nihil sed?<a
+                            class="anchor-link"
+                            href="#Example-1.-Hello,-World!"
+                            >&#182;</a
+                          >
+                        </h1>
+                        <p>
+                          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                        </p>
+                        <h2 id="Recording-and-the-forward-kernel">
+                          Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur, quae.<a
+                            class="anchor-link"
+                            href="#Recording-and-the-forward-kernel"
+                            >&#182;</a
+                          >
+                        </h2>
+                        <p>
+                          We record a simple function $f=\exp{\left(\frac{x}{y}+z\right)}$
+                          and check that the forward AADC kernel gives the same result as
+                          the original function.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>First let's include necessary headers</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+                            <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;aadc/aadc.h&gt;</span><span class="cp"></span>
+                            </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          We can declare variables as idouble. Note that you can use these
+                          same way as native double type
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">idouble</span><span class="w"> </span><span class="nf">x</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span><span class="n">y</span><span class="p">(</span><span class="mf">1.1</span><span class="p">),</span><span class="n">z</span><span class="p">,</span><span class="n">f</span><span class="p">;</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>Note that size of idouble is the same as native double</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">assert</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">idouble</span><span class="p">));</span><span class="w"></span>
+              <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; double size : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; bytes&quot;</span><span class="w"></span>
+              <span class="w">    </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">idouble size : &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">idouble</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; bytes&quot;</span><span class="p">;</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="jp-Cell-outputWrapper">
+                    <div
+                      class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser"
+                    ></div>
+
+                    <div class="jp-OutputArea jp-Cell-outputArea">
+                      <div class="jp-OutputArea-child">
+                        <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+                        <div
+                          class="jp-RenderedText jp-OutputArea-output"
+                          data-mime-type="text/plain"
+                        >
+                          <pre> double size : 8 bytes <br/>idouble size : 8 bytes</pre
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>And internally idouble simply hold a value and nothing else</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">val</span><span class="p">;</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="jp-Cell-outputWrapper">
+                    <div
+                      class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser"
+                    ></div>
+
+                    <div class="jp-OutputArea jp-Cell-outputArea">
+                      <div class="jp-OutputArea-child">
+                        <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+                        <div
+                          class="jp-RenderedText jp-OutputArea-output"
+                          data-mime-type="text/plain"
+                        >
+                          <pre>0.5</pre>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          Normally AAD libraries hold variable id or a pointer to internal
+                          structure, so you may ask how we track variables. The answer is
+                          &quot;we use variable address!&quot;. This has multiple
+                          advantages like identical memory layout for active and native
+                          objects. I.e. <strong>std::vector&lt;double&gt;</strong> and
+                          <strong>std::vector&lt;idouble&gt;</strong> have same memory
+                          representations!
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          As you expect from native double type, you can use idouble types
+                          in expressions
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">sin</span><span class="p">(</span><span class="n">y</span><span class="p">);</span><span class="w"></span>
+              <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;z:&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">z</span><span class="p">;</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="jp-Cell-outputWrapper">
+                    <div
+                      class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser"
+                    ></div>
+
+                    <div class="jp-OutputArea jp-Cell-outputArea">
+                      <div class="jp-OutputArea-child">
+                        <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+                        <div
+                          class="jp-RenderedText jp-OutputArea-output"
+                          data-mime-type="text/plain"
+                        >
+                          <pre>z:1.39121</pre>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          This means integration into existing code base is very easy.
+                          Just change native double type to active double type, recompile
+                          and your code should produce the same results!
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <h2 id="Recording-calculations">
+                          Recording calculations<a
+                            class="anchor-link"
+                            href="#Recording-calculations"
+                            >&#182;</a
+                          >
+                        </h2>
+                        <p>
+                          Now that we have active types in, we can begin recording
+                          calculations. We start by selecting vectorization type we want
+                          to use (avx2 or avx512).
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="n">__m256d</span><span class="w"> </span><span class="n">mmType</span><span class="p">;</span><span class="w"> </span><span class="c1">// __m512d is used for AVX512</span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          We next create <em>aad_funcs</em> object that going to hold
+                          recorded calculations for forward kernel and adjoint kernel.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">aadc</span><span class="o">::</span><span class="n">AADCFunctions</span><span class="o">&lt;</span><span class="n">mmType</span><span class="o">&gt;</span><span class="w"> </span><span class="n">aad_funcs</span><span class="p">;</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          Next we call <em>.startRecording()</em> to initialize AADC
+                          library and start recording of forward and adjoint kernels.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">aad_funcs</span><span class="p">.</span><span class="n">startRecording</span><span class="p">();</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="jp-Cell-outputWrapper">
+                    <div
+                      class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser"
+                    ></div>
+
+                    <div class="jp-OutputArea jp-Cell-outputArea">
+                      <div class="jp-OutputArea-child">
+                        <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+                        <div
+                          class="jp-RenderedText jp-OutputArea-output"
+                          data-mime-type="text/plain"
+                        >
+                          <pre>You are using evaluation version of AADC. Expire date is 20230201
+              </pre
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt"></div>
+                      <div
+                        class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput"
+                        data-mime-type="text/markdown"
+                      >
+                        <p>
+                          We should select which variables are inputs to valuation graph
+                          and keep argument handle.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+                  <div class="jp-Cell-inputWrapper">
+                    <div
+                      class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser"
+                    ></div>
+                    <div class="jp-InputArea jp-Cell-inputArea">
+                      <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
+                      <div
+                        class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor"
+                        data-type="inline"
+                      >
+                        <div class="CodeMirror cm-s-jupyter">
+                          <div class="highlight hl-c++">
+                            <pre><span></span><span class="n">aadc</span><span class="o">::</span><span class="n">AADCArgument</span><span class="w"> </span><span class="nf">x_arg</span><span class="p">(</span><span class="n">x</span><span class="p">.</span><span class="n">markAsInput</span><span class="p">());</span><span class="w"></span>
+              <span class="w">    </span><span class="n">aadc</span><span class="o">::</span><span class="n">AADCArgument</span><span class="w"> </span><span class="nf">y_arg</span><span class="p">(</span><span class="n">y</span><span class="p">.</span><span class="n">markAsInput</span><span class="p">());</span><span class="w"></span>
+              <span class="w">    </span><span class="n">aadc</span><span class="o">::</span><span class="n">AADCArgument</span><span class="w"> </span><span class="nf">z_arg</span><span class="p">(</span><span class="n">z</span><span class="p">.</span><span class="n">markAsInput</span><span class="p">());</span><span class="w"></span>
+              </pre>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
-          </main>
+          </div>
     </div>
 
     <!-- ======= Footer ======= -->
@@ -1610,6 +3776,8 @@
       })(window.lintrk);
     </script>
     <script>
+      // fix pre element bugs
+
       const pres = [...document.querySelectorAll('.highlight pre')]
 
       pres.forEach(pre => {
@@ -1624,6 +3792,41 @@
           })
 
           pre.innerHTML = newInnerHTML
+      })
+
+      // files selector logic
+
+      const fileSelectorItems = [...document.querySelectorAll('.files-selector__item')]
+      const fileViews = [...document.querySelectorAll('.notebook-viewer__main-column > .jp-Notebook')]
+
+      const findViewerElement = (key) => {
+          return fileViews.find(fileView => fileView.dataset.key === key)
+      }
+
+      let currentFileKey = fileSelectorItems[0].dataset.key
+
+      let selectedFileItemClass = 'files-selector__item--selected'
+      let selectedViewerClass = 'jp-Notebook--selected'
+
+
+      fileSelectorItems.forEach(fileSelectorItem => {
+        fileSelectorItem.onclick = e => {
+          const key = e.target.dataset.key
+
+          if(key === currentFileKey) return
+          else {
+            fileSelectorItems.forEach(item => item.classList.remove(selectedFileItemClass))
+            fileViews.forEach(item => item.classList.remove(selectedViewerClass))
+
+            currentFileKey = key
+
+            fileSelectorItem.classList.add(selectedFileItemClass)
+
+            const viewer = findViewerElement(key)
+
+            viewer.classList.add(selectedViewerClass)
+          }
+        }
       })
     </script>
     <noscript
